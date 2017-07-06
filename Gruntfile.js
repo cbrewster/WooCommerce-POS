@@ -403,14 +403,14 @@ module.exports = function(grunt) {
     compress: {
       main: {
         options: {
-          archive: '../woocommerce-pos-<%= pkg.version %>.zip'
+          archive: '../woocommerce-pos-rbo-<%= pkg.version %>.zip'
         },
         files: [
           {
             expand: true,
             cwd: '<%= app.tmp %>',
             src: ['**/*'],
-            dest: 'woocommerce-pos/'
+            dest: 'woocommerce-pos-rbo/'
           }
         ]
       }

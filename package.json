@@ -14,9 +14,9 @@
     "stop:php55": "docker-compose -f .docker/docker-php55.yml kill",
     "stop:php56": "docker-compose -f .docker/docker-php56.yml kill",
     "stop:php70": "docker-compose -f .docker/docker-php70.yml kill",
-    "dev": "npm install && npm run start && node_modules/.bin/grunt dev --force",
-    "deploy": "npm install && node_modules/.bin/grunt deploy",
-    "unit-test:js": "npm install && node_modules/.bin/grunt test",
+    "dev": "yarn install && yarn run start && node_modules/.bin/grunt dev --force",
+    "deploy": "yarn install && node_modules/.bin/grunt deploy",
+    "unit-test:js": "yarn install && node_modules/.bin/grunt test",
     "unit-test:php54": "docker exec woocommerce-pos-app-php54 phpunit -c wp-content/plugins/woocommerce-pos/tests/unit/php/phpunit.xml",
     "unit-test:php55": "docker exec woocommerce-pos-app-php55 phpunit -c wp-content/plugins/woocommerce-pos/tests/unit/php/phpunit.xml",
     "unit-test:php56": "docker exec woocommerce-pos-app-php56 phpunit -c wp-content/plugins/woocommerce-pos/tests/unit/php/phpunit.xml",
@@ -25,7 +25,7 @@
     "integration-test:php55": "docker exec woocommerce-pos-app-php55 phpunit -c wp-content/plugins/woocommerce-pos/tests/integration/php/phpunit.xml",
     "integration-test:php56": "docker exec woocommerce-pos-app-php56 phpunit -c wp-content/plugins/woocommerce-pos/tests/integration/php/phpunit.xml",
     "integration-test:php70": "docker exec woocommerce-pos-app-php70 phpunit -c wp-content/plugins/woocommerce-pos/tests/integration/php/phpunit.xml",
-    "teardown-docker": "npm run stop && docker rm $(docker ps -a -q) && rm -rf .data && rm -rf .html"
+    "teardown-docker": "yarn run stop && docker rm $(docker ps -a -q) && rm -rf .data && rm -rf .html"
   },
   "repository": {
     "type": "git",
