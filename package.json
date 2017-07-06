@@ -3,7 +3,7 @@
   "description": "A simple front-end for taking WooCommerce orders at the Point of Sale.",
   "version": "0.4.13",
   "scripts": {
-    "build": "npm install && node_modules/.bin/grunt build --force && docker-compose -f .docker/docker.yml build",
+    "build": "yarn install && node_modules/.bin/grunt build --force && docker-compose -f .docker/docker.yml build",
     "start": "docker-compose -f .docker/docker.yml up -d",
     "start:php54": "docker-compose -f .docker/docker-php54.yml up -d",
     "start:php55": "docker-compose -f .docker/docker-php55.yml up -d",
