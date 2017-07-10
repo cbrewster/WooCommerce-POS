@@ -11,7 +11,7 @@ module.exports = DualCollection.extend({
     {name: 'status', keyPath: 'status', unique: false},
     {name: 'email', keyPath: 'email', unique: true},
     {name: 'username', keyPath: 'username', unique: true}
-  ],
+    ],
 
   initialize: function(){
     var settings = Radio.request('entities', 'get', {

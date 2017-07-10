@@ -4,7 +4,7 @@ var App = require('lib/config/application');
 var CustomersModel = DualModel.extend({
   name: 'customer',
   // this is an array of fields used by FilterCollection.matchmaker()
-  fields: ['email', 'username', 'first_name', 'last_name']
+  fields: ['email', 'username', 'first_name', 'last_name', 'rbo.member_id']
 });
 
 module.exports = CustomersModel;

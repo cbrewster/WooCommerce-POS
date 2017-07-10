@@ -44,6 +44,12 @@ class WC_POS_Customers {
     'shipping_state',
     'shipping_postcode',
     'shipping_country',
+
+    // Rolling Bones Outfitter
+    'member_id',
+    'rep_id',
+    'hs_id',
+    'pos_manager',
   );
 
   public function __construct() {

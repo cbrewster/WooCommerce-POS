@@ -1,4 +1,5 @@
 <?php
+global $current_user;
 
 /**
  * POS Customer Class
@@ -27,8 +28,19 @@ class WC_POS_APIv2_Customers extends WC_POS_API_Abstract {
    * @param $wp_user_query
    */
   public function pre_get_users( $wp_user_query ) {
+    global $current_user;
+
+    $is_pos_manager = get_user_meta( $current_user->ID, 'pos_manager', true );
 
     $wp_user_query->query_vars[ 'role' ] = '';
+
+    if ($is_pos_manager !== 1) {
+      $meta_query = array(
+        'key' => 'rep_id',
+        'value' => get_user_meta( $current_user->ID, 'hs_id', true ),
+      );
+      $wp_user_query->set('meta_query', $meta_query);
+    }
 
     if ( isset( $_GET[ 'filter' ] ) ) {
 
@@ -142,7 +154,13 @@ class WC_POS_APIv2_Customers extends WC_POS_API_Abstract {
       $data['shipping_address'] = $data['shipping'];
     }
 
-    $response->set_data($data);
+    $data['rbo'] = array(
+      'member_id' => get_user_meta( $data['id'], 'member_id', true ),
+      'rep_id' => get_user_meta( $data['id'], 'rep_id', true ),
+      'hs_id' => get_user_meta( $data['id'], 'hs_id', true ),
+      'pos_manager' => get_user_meta( $data['id'], 'pos_manager', true ),
+    );
+
     return $response;
   }
 
